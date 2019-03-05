@@ -1,19 +1,11 @@
 CC = gcc
-FLAGS = -Wall -pedantic -ansi
-
-copy1: copy1.c
-	$(CC) $(FLAGS) $^ -o copy1
-
-cat: cat.c
-	$(CC) $(FLAGS) $^ -o cat
-
-backward: backward.c
-	$(CC) $(FLAGS) $^ -o backward
+FLAGS = -Wall -pedantic -ansi -o
 
 
-.PHONY: clean
+stat_info: stat_info.c
+	$(CC) -o stat_info $^
 
 clean:
+	rm -f *.o
 	rm -f *~
 	rm -f *.bak
-	rm -f *.o
