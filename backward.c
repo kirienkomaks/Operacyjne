@@ -1,4 +1,14 @@
 /*[backward]*/
+#include <stdio.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+
+#define _XOPEN_SOURCE >= 500
+
 void backward(char *path)
 {
 	char s[256], c;
@@ -34,4 +44,16 @@ void backward(char *path)
 	printf("%s", &s[i]);
 	close(fd);
 	return;
+}
+int main(int argc, char** argv){
+  if(argc != 2){
+    fprintf(stderr, "usage: %s path\n", argv[0]);
+    return -1;
+  }
+  else
+    backward(argv[1]);
+
+
+  return 0;
+
 }
