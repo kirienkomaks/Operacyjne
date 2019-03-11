@@ -1,8 +1,18 @@
 CC = gcc
-FLAGS = -pedantic -Wall -ansi
+FLAGS =  -oterm -pthread
 
-shell: shell.c funcs.c
-	$(CC) $(FLAGS) $^ -o shell
+hello: hello.c 
+	$(CC) $(FLAGS) $^ -o hello
+
+func: func.c
+	$(CC) $(FLAGS) $^ -o func
+
+cond: cond.c
+	$(CC) $(FLAGS) $^ -o cond
+
+randomsearch: randomsearch.c
+	$(CC) $(FLAGS) $^ -o randomsearch
+
 
 clean:
 	rm -f *.o
